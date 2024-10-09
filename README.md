@@ -1,7 +1,7 @@
 # DiG-IN: Diffusion Guidance for Investigating Networks - Uncovering Classifier Differences, Neuron Visualisations, and Visual Counterfactual Explanations [CVPR2024]
 
 
-![Alt text](figures/teaser.jpg?raw=true "Title")
+![Alt text](figures/teaser_horizontal_new.png "Title")
 
 This is the official implementation to our CVPR 2024 paper: [DiG-IN: Diffusion Guidance for Investigating Networks - Uncovering Classifier Differences, Neuron Visualisations, and Visual Counterfactual Explanations](https://arxiv.org/abs/2311.17833)
 
