@@ -8,16 +8,17 @@ from PIL import Image
 from typing import Dict, List, Optional
 from dataclasses import dataclass, field
 from omegaconf import OmegaConf
+import os
+from tqdm.auto import tqdm
 
 #from utils.scheduler import DDIMInverseScheduler
 from torchvision.datasets import ImageNet
 import torchvision.transforms as transforms
 from diffusers import StableDiffusionPipeline
 from diffusers import DDIMScheduler
+
 from utils.null_text_inversion import NullInversion
 from utils.inet_vce_idcs import VCE_start_class_target
-import os
-from tqdm.auto import tqdm
 
 
 @dataclass

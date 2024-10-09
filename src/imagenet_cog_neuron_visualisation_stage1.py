@@ -2,32 +2,31 @@
 import os, sys
 #sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-import torch
-import argparse
-from sat.model.mixins import CachedAutoregressiveMixin
-from sat.quantization.kernels import quantize
-from sat.model import AutoModel
-
-
-from utils.cogvlm.utils import chat, llama2_tokenizer, llama2_text_processor_inference, get_image_processor
-from sat.resources.urls import MODEL_URLS
-from sat.mpu import get_model_parallel_world_size
 
 #need to import to set up registry hooks
-import utils.cogvlm.models.cogagent_model
-import utils.cogvlm.models.cogvlm_model
-
-from datetime import datetime
 
 import math
 import torch
-
 import os
 import argparse
 import torchvision.transforms as transforms
 from omegaconf import OmegaConf
 from typing import Dict, List, Optional
 from dataclasses import dataclass, field
+
+from sat.model.mixins import CachedAutoregressiveMixin
+from sat.quantization.kernels import quantize
+from sat.model import AutoModel
+
+from sat.resources.urls import MODEL_URLS
+from sat.mpu import get_model_parallel_world_size
+
+import utils.cogvlm.models.cogagent_model
+import utils.cogvlm.models.cogvlm_model
+
+
+from utils.cogvlm.utils import chat, llama2_tokenizer, llama2_text_processor_inference, get_image_processor
+
 
 DEFAULT_TARGET_NEURONS = [310, 312, 318, 319, 322, 334, 338, 373, 386, 402, 410, 412, 424, 434, 473, 474, 476, 478, 483,
                           446, 494, 495, 498, 505, 507, 530, 534, 553, 571, 583, 589, 593, 595, 599, 608, 618, 619, 623,

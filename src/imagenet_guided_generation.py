@@ -8,7 +8,7 @@ from omegaconf import OmegaConf
 from typing import List, Optional
 from dataclasses import dataclass, field
 
-from src.utils.models import load_classifier
+from utils.models import load_classifier
 from utils.sd_backprop_pipe import StableDiffusionPipelineWithGrad
 from utils.plotting_utils import plot
 from utils.loss_functions import get_loss_function, calculate_confs, make_loss_dict

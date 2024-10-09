@@ -6,31 +6,14 @@
 This is the official implementation to our CVPR 2024 paper: [DiG-IN: Diffusion Guidance for Investigating Networks - Uncovering Classifier Differences, Neuron Visualisations, and Visual Counterfactual Explanations](https://arxiv.org/abs/2311.17833)
 
 ### Setup
-To create a conda environment run:
+To create a conda environment for this project, please run:
 
 ```
-conda create --name python_310_pytorch_22 python=3.10
-conda activate python_310_pytorch_22
-```
-
-We use Pytorch 2.2.1 which can be installed using:
-
-```
-conda install pytorch==2.2.1 torchvision==0.17.1 torchaudio==2.2.1 pytorch-cuda=12.1 -c pytorch -c nvidia
-```
-
-The remaining packages can be installed with:
-
-```
+conda create --name dig_in python=3.10
+conda activate dig_in
+conda install nvidia/label/cuda-12.1.0::cuda-nvcc
 pip install -r requirements.txt
-```
-
-The code is tested with diffusers==0.26.3 and transformers==4.38.2. 
-
-If you want to use CogVLM for neuron visualisations, please also install the required packages via:
-
-```
-pip install -r cog_requirements.txt
+python -m spacy download en_core_web_sm
 ```
 
 
@@ -62,13 +45,13 @@ You can specify the CUDA device ids via CUDA_VISIBLE_DEVICES, for example:
 First, you have to calculate the activations on the ImageNet train set. To do so, use:
 
 ```
-python imagenet_cog_neuron_activations.py imagenet_folder=YOUR/PATH/TO/IMAGENET
+python src/imagenet_cog_neuron_activations.py imagenet_folder=YOUR/PATH/TO/IMAGENET
 ```
 
 Next, we use CogVLM to name the objects in the highest activating train images:
 
 ```
-CUDA_VISIBLE_DEVICES=... torchrun --nproc-per-node N --standalone src/imagenet_cog_neuron_visualisation_stage1.py imagenet_folder=YOUR/PATH/TO/IMAGENET
+CUDA_VISIBLE_DEVICES=... torchrun --nproc-per-node N --standalone src/imagenet_cog_neuron_visualisation_stage1.py
 ```
 
 Finally, you can generate visualisations using DiG-IN via:
