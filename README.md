@@ -57,7 +57,7 @@ CUDA_VISIBLE_DEVICES=... torchrun --nproc-per-node N --standalone src/imagenet_c
 Finally, you can generate visualisations using DiG-IN via:
 
 ```
-CUDA_VISIBLE_DEVICES=... torchrun --nproc-per-node N --standalone src/imagenet_cog_neuron_visualisation_stage2.py imagenet_folder=YOUR/PATH/TO/IMAGENET
+CUDA_VISIBLE_DEVICES=... torchrun --nproc-per-node N --standalone src/imagenet_cog_neuron_visualisation_stage2.py
 ```
 
 By default, all results will be saved in:
